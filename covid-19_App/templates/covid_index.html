@@ -1,15 +1,155 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <title>Covid-19</title>
-</head>
-<body>
-    <div>
-        <h1>「プロジェクト名」へようこそ！</h1>
-        <p>弊サイトでは<a href="https://scholar.google.co.jp/schhp?hl=ja">Google scholar</a>に掲載されている論文が簡単に検索できます！</p>
-        <p>検索したいキーワードを記入してください。関連する論文が出てきます kevin</p>
-        <form action="{{url_for('search')}}", method="post">
-            <input type="text" name="word">
-        </form>
-    </div>
-</body>
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>かっこよさげなタイトル</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="#banner">Topへ</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="covid_index.html">Home</a></li>
+											<li><a href="covid_link.html">リンク集</a></li>
+											<li><a href="#">ほかは今の所なし</a></li>
+											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>かっこよさげなタイトル</h2>
+							<p>コロナウイルスの「今」を知りたいあなたへ<br>
+                            </p>
+                            <div class="col-6 col-12-xsmall">
+                                <input type="text" name="demo-name" id="demo-name" value="" placeholder="気になっているキーワードを入れてください" />
+                            </div>
+							<ul class="actions special">
+                                
+								<li><a href="covid_literature.html" class="button">検索</a></li>
+                            </ul>
+                            
+                            <ul class="actions special">
+                                
+								<li><a href="covid_link.html" class="button primary">感染者などをまとめたリンク集はコチラ</a></li>
+							</ul>
+						</div>
+						<a href="#one" class="more scrolly">このサイトについて</a>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h3>こんなこと思いませんか？</h3>
+                                <p><b>コロナウイルスについて最新の情報が知りたい<br>
+                                    だけどどうやって検索すればいいかわからない<br>
+                                    メディアだと情報が多すぎてどれを信用していいかわからない</b><br>
+                                    <br>
+                                    <u><b>このサイトは、そんな悩みを持つあなたのために作られました</b></u>
+                                </p>
+                                <h3>正確な情報に、最短でアクセス</h3>
+                                <p><u><b>
+                                1.「正確」かつ「最新」の「論文」に、「簡単」にアクセスできる検索機能<br>
+                                2.その日の感染者や陽性率など、知りたい情報を網羅したリンク集</b></u>
+                                <br><br><b>この2つの機能を使うだけで</b>
+                            <br><u><b>コロナウイルスの最新情報がすべて、数クリックで入手可能に！</b></u></p>
+                                <a href="#two" class="more scrolly">使い方を見てみる</a>
+                                
+							</header>
+							
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+                            <div class="image"><img src="images/pic01.jpg" alt="" /></div>
+                            <div class="content">
+								<h2>キーワードを入力するだけ！
+								</h2>
+                                <p><a href="#banner" class="more scrolly">検索バー</a>から、<b><u>気になるキーワードを入力するだけ</u></b>で、そのキーワードに関連した論文が関連度順に5件表示されます。
+                                    <br><b><u>本当に関連している論文だけ出てくる</u></b>ので情報に惑わされることはありません。
+                                    <br>また論文をクリックすると、今度はその論文に関連した論文が表示されます。これによって、<b><u>より多くの情報を得ることもできます。</u></b>
+                                <br><br>※キーワードは英語で検索すると良いです</p>
+                                    <a href="#banner" class="more scrolly">早速検索してみる</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
+								<h2>知りたい情報、まとまってます</h2>
+								<p>その日の感染者や検査数、相談件数など色んな情報にまとめてアクセスできるようなリンク集を作りました。
+                                    公式サイトに限定しているため情報は<u><b>正確かつ最新</b></u>です！
+                                    <br><u><b>あなたの知りたい情報がきっと見つかります！</b></u>
+                            </p>
+                            <a href="covid_link.html" class="more scrolly">リンク集へ</a>
+							</div>
+						</section>
+						
+					</section>
+
+				<!-- Three -->
+					
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>Arcue ut vel commodo</h2>
+								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
+							</header>
+							<ul class="actions stacked">
+								<li><a href="#" class="button fit primary">Activate</a></li>
+								<li><a href="#" class="button fit">Learn More</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
