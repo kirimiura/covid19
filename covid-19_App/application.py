@@ -27,7 +27,7 @@ Session(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("covid_index.html")
 
 @app.route("/search",methods=["POST"])
 def search():
@@ -44,7 +44,7 @@ def search():
         l_1 = df.iloc[i,[0,2,4,5]].to_dict()
         literatures.append(l_1)
 
-    return render_template("literature.html",word=word,literatures=literatures)
+    return render_template("covid_literature.html",word=word,literatures=literatures)
 
 
 @app.route("/search_form/<string:paper_id>")
