@@ -2753,9 +2753,7 @@ input, select, textarea {
 				display: block;
 			}
 
-				.spotlight br {
-					display: none;
-				}
+				
 
 				.spotlight .image {
 					width: 100%;
@@ -2764,7 +2762,7 @@ input, select, textarea {
 				.spotlight .content {
 					padding: 4em 3em 2em 3em ;
 					max-width: none;
-					text-align: center;
+					text-align: left;
 					width: 100%;
 				}
 
