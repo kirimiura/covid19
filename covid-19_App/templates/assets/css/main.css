@@ -3711,10 +3711,7 @@ input, select, textarea {
 					display: none;
 				}
 
-				#banner .more {
-					display: none;
-				}
-
+				
 		}
 
 	body.is-preload #banner h2 {
