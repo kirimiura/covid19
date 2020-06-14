@@ -14,7 +14,6 @@
 	</head>
 	<body class="is-preload">
 			<div id="page-wrapper">
-
 				<!-- Header -->
 					<header id="header">
 						<h1><a href="index.html">Spectral</a></h1>
@@ -31,31 +30,43 @@
 											<li><a href="#">Log In</a></li>
 										</ul>
                                     </div>
-                                    
-
-								</li>
+                                </li>
 							</ul>
 						</nav>
 					</header>
-
 				<!-- Main -->
 					<article id="main">
 						<header>
 							<h2>いでのぴ担当検索結果表示ページ</h2>
-							<p>"マスク"に関連している論文を表示しています</p>
+							<p>マスクに関連している論文を表示しています</p>
 						</header>
 						<section class="wrapper style5">
                             <div class = "inner">
                                 ５件の関連する論文
-                                <li>
-                                    <ul>
-                                    <a href="https://bjh4emts66.execute-api.us-east-1.amazonaws.com/appdemo/?word=マスク" target="_self">
-                                        {{literature.title}}
-                                    </a>
-                                        Author:{{literature.author}}
-                                        {{literature.abstract}}
-                                    </ul>
-                                </li>
+        
+								<form action="https://bjh4emts66.execute-api.us-east-1.amazonaws.com/appdemo/?word=demo-name" method="post">
+								<ol>
+									<li> 
+										<p>["paper_id"]</p>
+										<p>["authors"]</p>
+										<p>["title"]</p>
+										<p>["abstruct_summary"]</p>
+									</li>	
+									<li>
+
+									</li>
+									<li>
+
+									</li>
+									<li>
+
+									</li>
+									<li>
+
+									</li>
+
+                                </ol>       
+                                
                             </div>
 						</section>
 					</article>
