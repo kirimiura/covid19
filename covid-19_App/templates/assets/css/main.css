@@ -1804,14 +1804,7 @@ input, select, textarea {
 
 		}
 
-	@media screen and (max-width: 980px) {
-
-		header br {
-			display: none;
-		}
-
-	}
-
+		
 /* Form */
 
 	form {
@@ -2760,9 +2753,7 @@ input, select, textarea {
 				display: block;
 			}
 
-				.spotlight br {
-					display: none;
-				}
+				
 
 				.spotlight .image {
 					width: 100%;
@@ -2771,7 +2762,7 @@ input, select, textarea {
 				.spotlight .content {
 					padding: 4em 3em 2em 3em ;
 					max-width: none;
-					text-align: center;
+					text-align: left;
 					width: 100%;
 				}
 
@@ -3720,10 +3711,7 @@ input, select, textarea {
 					display: none;
 				}
 
-				#banner .more {
-					display: none;
-				}
-
+				
 		}
 
 	body.is-preload #banner h2 {
@@ -3785,7 +3773,7 @@ input, select, textarea {
 
 			#cta .inner {
 				display: block;
-				text-align: center;
+				text-align: left;
 			}
 
 				#cta .inner header {
