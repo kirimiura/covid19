@@ -109,8 +109,9 @@
 									message.textContent = "検索結果"+"("+String(i+1)+")"
 								}
 								var paper_id = String(data[i].paper_id)
-								var title = document.createElement("h4")
+								var title = document.createElement("a")
 								title.textContent = "Title : "+data[i].title
+								title.href = "https://api.semanticscholar.org/"+String(data[i].paper_id)
 								var author = document.createElement("h4")
 								author.textContent = "Authors : "+data[i].authors
 								var abstract_summary = document.createElement("p")
@@ -147,7 +148,7 @@
 							index=1
 							window.scrollTo(0,492)
 						}
-						
+
 						document.addEventListener('DOMContentLoaded', () => {
 							console.log("domcontentload!")
 							document.getElementById("search_button").onclick = function() {
@@ -166,7 +167,7 @@
 					<div id="literatures">
 						<section id="banner">
 							<div class="inner">
-							<p>検索結果の例</p>
+							<p>検索結果の表示</p>
 							<h4>title</h4>
 							<h4>authors</h4>
 							<p>abstract</p>
@@ -182,11 +183,10 @@
 						<div class="inner">
 							<header class="major">
 								<h3>こんなこと思いませんか？</h3>
-                                <p><b>コロナウイルスについて最新情報が知りたい<br>
-                                    でもどうやって検索すればいいかわからない<br>
+                                <p><b>コロナウイルスについての最新情報が知りたい<br>
+									でもどうやって検索すればいいかわからない<br>
 									メディアだと情報が多すぎる<br>
 									だからどの情報が信用できるかわからない
-									
 								</b>
                                     <br>
                                     <u><b>このサイトは、そんなあなた向けのものです</b></u>
