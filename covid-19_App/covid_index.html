@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>コロナビ</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="main.css" />
+		<noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="#banner">Topへ</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="covid_index.html">Home</a></li>
+											<li><a href="covid_link.html">リンク集</a></li>			
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>コロナビ</h2>
+							<p>コロナの「今」を知りたいあなたへ<br>
+                            </p>
+                            <div class="col-6 col-12-xsmall">
+                                <input type="text" name="demo-name" id="demo-name" value="" placeholder="気になるキーワード(英語)" />
+                            </div>
+							<ul class="actions special">
+								<li><a href="#" class="button" id="search_button">検索</a></li>
+                            </ul>
+                            
+                            <ul class="actions special">
+                                
+								<li><a href="covid_link.html" class="button primary">コロナ情報をまとめたリンク集へ</a></li>
+							</ul>
+						</div>
+						<a href="#one" class="more scrolly">about</a>
+					</section>
+					
+
+					<!--検索結果を表示する-->
+					<script>
+						let index = 0 //search
+						var literatures = document.getElementById("literatures")
+
+						function getData(url,param,literatures){
+							console.log("get data param:"+param)
+							console.log("get data at:"+url+param)
+							var request = new XMLHttpRequest();
+							// url = "https://41tgmelx82.execute-api.us-east-1.amazonaws.com/app1000/?paper_id="+String(paper_id)
+							url_1 = url + param
+							request.open("GET",url_1)
+							request.send()
+							request.onload = (type)=>{
+								if (request.status==200){
+									//let data = JSON.parse(request.responseText)
+									//console.log(data)
+									var literatures = document.getElementById("literatures")
+									show_literatures(request.responseText,literatures)
+								}else{
+									console.log("error at load data")
+								}
+							}
+							
+						}
+
+						function show_literatures(responseText,literatures){
+							console.log(responseText)
+							let data = JSON.parse(responseText)
+							console.log(data)
+
+							//while (literatures.firstChild) literatures.removeChild(literatures.firstChild);
+							literatures.textContent = null;
+
+							console.log(index)
+							for (var i = 0; i < 5; i++) {
+								var section = document.createElement("section")
+								section.id="banner"
+								var div = document.createElement("div")
+								div.classList.add("inner")
+								var message = document.createElement("p")
+								if (index==1){
+									if (i==0){
+										message.textContent = "参照元"
+									}else{
+										message.textContent = "関連度が高い論文"+"("+String(i)+")"
+									}
+								}else{
+									message.textContent = "検索結果"+"("+String(i+1)+")"
+								}
+								var paper_id = String(data[i].paper_id)
+								var title = document.createElement("h4")
+								title.textContent = "Title : "+data[i].title
+								var author = document.createElement("h4")
+								author.textContent = "Authors : "+data[i].authors
+								var abstract_summary = document.createElement("p")
+								abstract_summary.textContent = data[i].abstract_summary
+								var ul = document.createElement("ul")
+								ul.classList.add("actions")
+								ul.classList.add("special")
+								var li = document.createElement("li")
+								var recommend = document.createElement("a")
+								recommend.classList.add("button")
+								recommend.id = "recommend"
+								recommend.name = String(paper_id)
+								recommend.textContent = "関連した論文を探す"
+
+								recommend.onclick = function(){
+									url = "https://41tgmelx82.execute-api.us-east-1.amazonaws.com/app1000/?paper_id="
+									getData(url,this.name)
+									console.log(type)
+								}
+								
+
+								literatures.appendChild(section)
+								section.appendChild(div)
+								div.appendChild(message)
+								div.appendChild(title)
+								div.appendChild(author)
+								div.appendChild(abstract_summary)
+								div.appendChild(ul)
+								ul.appendChild(li)
+								li.appendChild(recommend)
+
+								console.log("showed!");
+							}
+							index=1
+						}
+						
+						document.addEventListener('DOMContentLoaded', () => {
+							console.log("domcontentload!")
+							document.getElementById("search_button").onclick = function() {
+								index=0
+								console.log(index)
+								console.log("search click event!")
+								var word = document.getElementById("demo-name").value
+								url = "https://oqf1fj7q8a.execute-api.us-east-1.amazonaws.com/app1000/?word="
+								getData(url,word)
+								//var literatures = document.getElementById("literatures")
+								//show_literatures(data,literatures)
+							}
+						});
+					</script>
+
+					<div id="literatures">
+						<section id="banner">
+							<div class="inner">
+							<p>検索結果の例</p>
+							<h4>title</h4>
+							<h4>authors</h4>
+							<p>abstract</p>
+							<ul class="actions special">
+								<li><a href="#" class="button" id="search_button">関連した論文の検索</a></li>
+                            </ul>
+							</div>
+						</section>
+					</div>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h3>こんなこと思いませんか？</h3>
+                                <p><b>コロナウイルスについて最新情報が知りたい<br>
+                                    でもどうやって検索すればいいかわからない<br>
+									メディアだと情報が多すぎる<br>
+									だからどの情報が信用できるかわからない
+								</b>
+                                    <br>
+                                    <u><b>このサイトは、そんなあなた向けのものです</b></u>
+                                </p>
+                                <h3>正確な情報に、最短でアクセス</h3>
+                                <p><u><b>
+                                1.「正確」かつ「最新」の「論文」に、「簡単」にアクセスできる検索機能<br>
+                                2.その日の感染者や陽性率など、知りたい情報を網羅したリンク集</b></u>
+                                <br><br><b>この2つの機能を使うだけで</b>
+                            <br><u><b>全てのコロナ情報が、数クリックで入手可能に！</b></u></p>
+                                <a href="#two" class="more scrolly">使い方を見てみる</a>
+                                
+							</header>
+							
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+                            <div class="image"><img src="covid_01.jpg" alt="" /></div>
+                            <div class="content">
+								<h2>キーワードを入力するだけ！
+								</h2>
+                                <p><a href="#banner" class="more scrolly">検索バー</a>から、<b><u>気になるキーワードを入力するだけ</u></b>で、そのキーワードに関連した論文が関連度順に5件表示されます。
+                                    <br><b><u>本当に関連している論文だけ出てくる</u></b>ので情報に惑わされることはありません。
+                                    <br>また論文をクリックすると、今度はその論文に関連した論文が表示されます。これによって、<b><u>より多くの情報を得ることもできます。</u></b>
+                                <br><br>※キーワードは英語で検索すると良いです</p>
+                                    <a href="#banner" class="more scrolly">早速検索してみる</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="covid_02.png" alt="" /></div><div class="content">
+								<h2>知りたい情報、まとまってます</h2>
+								<p>その日の感染者や検査数、日本や世界の経済状況など色んな情報にまとめてアクセスできるようなリンク集を作りました。
+                                    公式・ビシネスサイトに限定しているため情報は<u><b>正確かつ最新</b></u>です！
+									<br><u><b>あなたの知りたい情報がきっと見つかります！</b></u>
+									
+                            </p>
+                            <a href="covid_link.html" class="more scrolly">リンク集を見てみる</a>
+							</div>
+						</section>
+						
+					</section>
+
+				<!-- Three -->
+					
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>このサイトについて</h2>
+								<p>このサイトは、現役大学生によって作られたものです。ご質問ご要望等あれば、
+									<a href="https://twitter.com/C19app">Twitter</a>までご連絡ください<br>
+								論文データについては、<a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge">Kaggle</a>のコンベティションで使われたものを使用しています。</p>
+								<a href="#banner" class="more scrolly">ページ上部へ</a>
+							</header>
+							
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/C19app" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="jquery.min.js"></script>
+			<script src="jquery.scrollex.min.js"></script>
+			<script src="jquery.scrolly.min.js"></script>
+			<script src="browser.min.js"></script>
+			<script src="breakpoints.min.js"></script>
+			<script src="util.js"></script>
+			<script src="main.js"></script>
+
+	</body>
+</html>
