@@ -83,6 +83,20 @@
 							}
 							
 						}
+						/*
+						function translate_ja(p_tag,text){
+							var request = new XMLHttpRequest();
+							url = 
+							request.open("POST",url)
+							request.send(text)
+							request.onload = (type)=>{
+								if (request.status==200){
+									p_tag.textContent = request.responseText
+								}else{
+									console.log("error at load data")
+								}
+							}
+						}*/
 
 						function show_literatures(responseText,literatures){
 							console.log(responseText)
@@ -112,6 +126,7 @@
 								var title = document.createElement("a")
 								title.textContent = "Title : "+data[i].title
 								title.href = "https://api.semanticscholar.org/"+String(data[i].paper_id)
+								title.style.fontSize = "16px"
 								var author = document.createElement("h4")
 								author.textContent = "Authors : "+data[i].authors
 								var abstract_summary = document.createElement("p")
@@ -131,8 +146,16 @@
 									getData(url,this.name)
 									console.log(type)
 								}
-								
 
+								//翻訳ボタン
+								//var li2 = document.createElement("li")
+								//var translate = document.createElement("a")
+								//translate.classList.add("button")
+								//translate.textContent = "日本語に訳す"
+								//translate.onclick = function(){
+								//	translate_ja(this,data[i].title)
+								//}
+								
 								literatures.appendChild(section)
 								section.appendChild(div)
 								div.appendChild(message)
@@ -142,6 +165,8 @@
 								div.appendChild(ul)
 								ul.appendChild(li)
 								li.appendChild(recommend)
+								//ul.appendChild(li2)
+								//li2.appendChild(translate)
 
 								console.log("showed!");
 							}
@@ -198,7 +223,6 @@
                                 <br><br><b>この2つの機能を使うだけで</b>
                             <br><u><b>全てのコロナ情報が、数クリックで入手可能に！</b></u></p>
                                 <a href="#two" class="more scrolly">使い方を見てみる</a>
-                                
 							</header>
 							
 						</div>
