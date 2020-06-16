@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>コロナビ</title>
+		<title>コロナリサーチ</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="main.css" />
@@ -38,7 +38,7 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>コロナビ</h2>
+							<h2>コロナリサーチ</h2>
 							<p>コロナの「今」を知りたいあなたへ<br>
                             </p>
                             <div class="col-6 col-12-xsmall">
@@ -112,7 +112,8 @@
 								section.id="banner"
 								var div = document.createElement("div")
 								div.classList.add("inner")
-								var message = document.createElement("p")
+								var message = document.createElement("h4")
+								div.classList.add("showindex")
 								if (index==1){
 									if (i==0){
 										message.textContent = "参照元"
@@ -127,7 +128,7 @@
 								title.textContent = "Title : "+data[i].title
 								var author = document.createElement("h4")
 								author.textContent = "Authors : "+data[i].authors
-								var abstract_summary = document.createElement("p")
+								var abstract_summary = document.createElement("h5")
 								abstract_summary.textContent = data[i].abstract_summary
 								var ul = document.createElement("ul")
 								ul.classList.add("actions")
@@ -188,13 +189,13 @@
 						});
 					</script>
 
-					<div id="literatures">
+					<div id="literatures" class="literatures">
 						<section id="banner">
 							<div class="inner">
-							<p>検索結果の表示</p>
-							<h4>title</h4>
-							<h4>authors</h4>
-							<p>abstract</p>
+							<h4 class="showindex">検索結果の表示</h4>
+							<h4>Title</h4>
+							<h4>Authors</h4>
+							<h4>Abstract</h4>
 							<ul class="actions special">
 								<li><a href="#" class="button" id="search_button">関連した論文の検索</a></li>
                             </ul>
