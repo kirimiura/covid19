@@ -123,10 +123,8 @@
 									message.textContent = "検索結果"+"("+String(i+1)+")"
 								}
 								var paper_id = String(data[i].paper_id)
-								var title = document.createElement("a")
+								var title = document.createElement("h4")
 								title.textContent = "Title : "+data[i].title
-								title.href = "https://api.semanticscholar.org/"+String(data[i].paper_id)
-								title.style.fontSize = "16px"
 								var author = document.createElement("h4")
 								author.textContent = "Authors : "+data[i].authors
 								var abstract_summary = document.createElement("p")
@@ -147,11 +145,12 @@
 									console.log(type)
 								}
 
-								//翻訳ボタン
-								//var li2 = document.createElement("li")
-								//var translate = document.createElement("a")
-								//translate.classList.add("button")
-								//translate.textContent = "日本語に訳す"
+								//論文ボタン
+								var li2 = document.createElement("li")
+								var translate = document.createElement("a")
+								translate.classList.add("button")
+								translate.textContent = "全文を見る(外部サイトへリンクしています)"
+								translate.href = "https://api.semanticscholar.org/"+String(data[i].paper_id)
 								//translate.onclick = function(){
 								//	translate_ja(this,data[i].title)
 								//}
@@ -165,8 +164,8 @@
 								div.appendChild(ul)
 								ul.appendChild(li)
 								li.appendChild(recommend)
-								//ul.appendChild(li2)
-								//li2.appendChild(translate)
+								ul.appendChild(li2)
+								li2.appendChild(translate)
 
 								console.log("showed!");
 							}
@@ -208,13 +207,14 @@
 						<div class="inner">
 							<header class="major">
 								<h3>こんなこと思いませんか？</h3>
-                                <p><b>コロナウイルスについての最新情報が知りたい<br>
-									でもどうやって検索すればいいかわからない<br>
-									メディアだと情報が多すぎる<br>
-									だからどの情報が信用できるかわからない
+                                <p><b>
+									・コロナウイルスの最新情報が知りたい<br>
+									・でもどう検索すればいいかわからない<br>
+									・メディアだと情報が多すぎる<br>
+									・どの情報が信用できるかわからない
 								</b>
                                     <br>
-                                    <u><b>このサイトは、そんなあなた向けのものです</b></u>
+                                    <u><b>このサイトはそんなあなた向けのものです</b></u>
                                 </p>
                                 <h3>正確な情報に、最短でアクセス</h3>
                                 <p><u><b>
@@ -263,8 +263,8 @@
 						<div class="inner">
 							<header>
 								<h2>このサイトについて</h2>
-								<p>このサイトは、現役大学生によって作られたものです。ご質問ご要望等あれば、
-									<a href="https://twitter.com/C19app">Twitter</a>までご連絡ください<br>
+								<p>このサイトは、現役東大生によって作られたものです。ご質問ご要望等あれば、
+									<a href="https://twitter.com/C19app">Twitter</a>までご連絡ください。<br>
 								論文データについては、<a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge">Kaggle</a>のコンベティションで使われたものを使用しています。
 								<a href="https://arxiv.org/abs/2004.10706">CORD-19: The Covid-19 Open Research Dataset</a>
 								<a href=""></a>
